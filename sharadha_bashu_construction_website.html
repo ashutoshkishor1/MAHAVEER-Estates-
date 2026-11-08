@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b27">
+  <meta name="description" content="SHARADHA BASHU — construction, renovation and infrastructure solutions built on trust, quality and precision.">
+  <title>SHARADHA BASHU | Construction & Infrastructure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#101b27;--navy2:#172635;--gold:#c99b54;--cream:#f5f2ec;--ink:#17212b;--muted:#697581;--white:#fff;--line:rgba(255,255,255,.14)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+    h1,h2,h3,.brand{font-family:Manrope,sans-serif;letter-spacing:-.035em}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+    .topbar{background:#0b141e;color:#d9e0e6;font-size:12px;padding:9px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(16,27,39,.97);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid var(--line)}
+    .navin{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;letter-spacing:.04em}
+    .brandmark{width:39px;height:39px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-size:20px;font-weight:800;transform:rotate(45deg)}
+    .brandmark span{transform:rotate(-45deg)}
+    .brand small{display:block;font:500 9px "DM Sans";letter-spacing:.23em;color:#b9c2ca;margin-top:2px}
+    .links{display:flex;align-items:center;gap:29px;font-size:13px;color:#d9e0e6}
+    .links a:hover{color:var(--gold)}
+    .navcta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#101820;padding:13px 20px;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--gold);transition:.25s}
+    .navcta:hover,.btn:hover{background:#ddb878;transform:translateY(-2px)}
+    .menu{display:none;background:none;border:0;color:white;font-size:26px}
+    .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;min-height:680px;display:flex;align-items:center}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,19,29,.96) 0%,rgba(10,19,29,.84) 46%,rgba(10,19,29,.28) 100%),url('https://images.unsplash.com/photo- строитель?auto=format&fit=crop&w=2000&q=85');background-image:linear-gradient(90deg,rgba(10,19,29,.96) 0%,rgba(10,19,29,.82) 48%,rgba(10,19,29,.25) 100%),url('https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=2000&q=85');background-size:cover;background-position:center}
+    .hero:after{content:"";position:absolute;right:-140px;bottom:-250px;width:550px;height:550px;border:1px solid rgba(201,155,84,.28);border-radius:50%;box-shadow:0 0 0 55px rgba(201,155,84,.035),0 0 0 110px rgba(201,155,84,.025)}
+    .hero-content{position:relative;z-index:1;max-width:730px;padding:100px 0}
+    .eyebrow{display:flex;align-items:center;gap:12px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:23px}
+    .eyebrow:before{content:"";width:38px;height:1px;background:var(--gold)}
+    .hero h1{font-size:clamp(42px,6.2vw,76px);line-height:1.08;font-weight:700;margin-bottom:24px}
+    .hero h1 em{font-style:normal;color:var(--gold)}
+    .hero p{font-size:16px;color:#d0d8df;max-width:570px;margin-bottom:34px}
+    .hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .textlink{color:#fff;font-size:13px;font-weight:600;border-bottom:1px solid var(--gold);padding-bottom:5px}
+    .hero-note{margin-top:70px;display:flex;gap:38px;flex-wrap:wrap;color:#d6dce2;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .hero-note strong{display:block;font:700 23px Manrope;color:#fff;letter-spacing:-.04em;margin-bottom:3px}
+    section{padding:104px 0}
+    .section-head{max-width:660px;margin-bottom:48px}
+    .kicker{color:#a47737;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:13px}
+    .section-head h2{font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--navy);margin-bottom:17px}
+    .section-head p{color:var(--muted);font-size:15px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-visual{min-height:510px;position:relative;background:url('https://images.unsplash.com/photo-1503387762-592de3b3db73?auto=format&fit=crop&w=1000&q=85') center/cover}
+    .about-visual:after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1}
+    .stamp{position:absolute;right:-25px;bottom:34px;background:var(--gold);padding:23px 26px;color:#17212b}
+    .stamp strong{display:block;font:800 27px Manrope;line-height:1.1}
+    .stamp span{font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+    .about-copy h2{font-size:clamp(32px,4vw,46px);line-height:1.15;color:var(--navy);margin:12px 0 20px}
+    .about-copy p{color:var(--muted);margin-bottom:16px;font-size:14px}
+    .ticks{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:28px 0 32px}
+    .tick{font-size:13px;font-weight:600;display:flex;gap:10px;align-items:center}
+    .tick b{color:#a47737;font-size:17px}
+    .dark{background:var(--navy);color:#fff}
+    .dark .section-head h2{color:#fff}
+    .dark .section-head p{color:#aeb9c3}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13)}
+    .service{background:var(--navy);padding:34px 30px;min-height:245px;transition:.25s}
+    .service:hover{background:#1c3042;transform:translateY(-4px)}
+    .service .num{font:700 12px Manrope;color:var(--gold);letter-spacing:.15em}
+    .service h3{font-size:21px;margin:28px 0 11px}
+    .service p{font-size:13px;color:#aeb9c3;line-height:1.8}
+    .service .arrow{display:inline-block;color:var(--gold);font-size:20px;margin-top:18px}
+    .projects{background:var(--cream)}
+    .project-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+    .project{position:relative;min-height:340px;overflow:hidden;background:#263746}
+    .project img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .6s}
+    .project:hover img{transform:scale(1.05)}
+    .project:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,18,27,.88),transparent 70%)}
+    .project-info{position:absolute;z-index:1;bottom:25px;left:28px;color:#fff}
+    .project-info span{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.17em}
+    .project-info h3{font-size:23px;margin-top:5px}
+    .project-stack{display:grid;gap:22px}
+    .project-stack .project{min-height:159px}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+    .step{border-top:1px solid #d9dee2;padding-top:22px}
+    .step .n{font:700 30px Manrope;color:#c99b54}
+    .step h3{font-size:18px;margin:13px 0 8px;color:var(--navy)}
+    .step p{font-size:13px;color:var(--muted)}
+    .cta-band{background:var(--gold);padding:55px 0}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .cta-inner h2{font-size:clamp(27px,3.5vw,40px);line-height:1.15;color:#17212b;max-width:650px}
+    .btn-dark{background:var(--navy);border-color:var(--navy);color:#fff;white-space:nowrap}
+    .btn-dark:hover{background:#24384a}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .contact-copy h2{font-size:42px;line-height:1.15;color:var(--navy);margin:12px 0 17px}
+    .contact-copy p{color:var(--muted);font-size:14px;margin-bottom:25px}
+    .contact-line{padding:15px 0;border-top:1px solid #e5e8ea;font-size:13px}
+    .contact-line small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.13em}
+    .form{background:var(--cream);padding:34px}
+    .form h3{font-size:23px;color:var(--navy);margin-bottom:22px}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:11px;font-weight:700;color:#475360}
+    .field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #d8dddF;background:#fff;font:13px "DM Sans";outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+    .field textarea{min-height:110px;resize:vertical}
+    .form button{margin-top:18px;cursor:pointer}
+    .form-note{font-size:10px;color:#7b858e;margin-top:12px}
+    footer{background:#0b141e;color:#aeb8c1;padding:55px 0 22px}
+    .footgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:50px;padding-bottom:42px}
+    footer .brand{color:#fff;margin-bottom:18px}
+    footer p{font-size:12px;max-width:330px;color:#9eabb6}
+    footer h4{color:#fff;font:700 12px Manrope;letter-spacing:.1em;text-transform:uppercase;margin-bottom:17px}
+    footer ul{list-style:none;display:grid;gap:10px;font-size:12px}
+    footer a:hover{color:var(--gold)}
+    .copyright{border-top:1px solid var(--line);padding-top:19px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:10px}
+    @media(max-width:850px){.links{gap:15px}.about-grid{gap:45px}.services{grid-template-columns:repeat(2,1fr)}.contact-grid{gap:35px}}
+    @media(max-width:650px){
+      .wrap{width:min(100% - 34px,1160px)}.topbar .wrap{justify-content:center;text-align:center}.navin{height:70px}.menu{display:block}
+      .links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--navy);padding:22px;flex-direction:column;align-items:flex-start;border-top:1px solid var(--line)}
+      .links.open{display:flex}.navcta{display:none}.hero{min-height:650px}.hero-content{padding:80px 0}.hero p{font-size:14px}.hero-note{margin-top:52px;gap:24px}
+      section{padding:75px 0}.about-grid,.contact-grid,.project-grid{grid-template-columns:1fr}.about-visual{min-height:360px;margin-right:14px}.stamp{right:-12px}
+      .services{grid-template-columns:1fr}.service{min-height:210px}.project{min-height:280px}.project-stack .project{min-height:220px}.process-grid{grid-template-columns:1fr 1fr;row-gap:32px}
+      .cta-inner{align-items:flex-start;flex-direction:column}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.form{padding:25px 19px}.footgrid{grid-template-columns:1fr 1fr;gap:32px}.footgrid>div:first-child{grid-column:1/-1}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><span>BUILDING WITH INTEGRITY • DELIVERING WITH PRECISION</span><span>Lucknow, Uttar Pradesh · India</span></div></div>
+  <header class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#home"><span class="brandmark"><span>SB</span></span><span>SHARADHA BASHU<small>CONSTRUCTION & INFRASTRUCTURE</small></span></a>
+      <button class="menu" aria-label="Open navigation" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+      <nav class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Our Process</a><a href="#contact">Contact</a></nav>
+      <a class="navcta" href="#contact">Discuss a project ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home"><div class="wrap"><div class="hero-content">
+      <div class="eyebrow">Built on trust. Made to last.</div>
+      <h1>We build more than structures.<br><em>We build confidence.</em></h1>
+      <p>From thoughtfully planned spaces to dependable construction execution, we bring craftsmanship, accountability and attention to detail to every project.</p>
+      <div class="hero-actions"><a class="btn" href="#contact">Start your project <span>↗</span></a><a class="textlink" href="#services">Explore our capabilities&nbsp; →</a></div>
+      <div class="hero-note"><div><strong>01</strong>Quality-led execution</div><div><strong>02</strong>Clear communication</div><div><strong>03</strong>End-to-end approach</div></div>
+    </div></div></section>
+
+    <section id="about"><div class="wrap about-grid">
+      <div class="about-visual"><div class="stamp"><strong>Built to<br>stand strong.</strong><span>Our commitment</span></div></div>
+      <div class="about-copy"><div class="kicker">Who we are</div><h2>Solid foundations.<br>Strong relationships.</h2>
+        <p>SHARADHA BASHU is a construction-focused business committed to delivering dependable work with professional planning and careful execution.</p>
+        <p>We believe every successful project begins with listening, realistic planning and a shared understanding of quality, timelines and expectations.</p>
+        <div class="ticks"><div class="tick"><b>✓</b> Quality-focused work</div><div class="tick"><b>✓</b> Transparent coordination</div><div class="tick"><b>✓</b> Practical planning</div><div class="tick"><b>✓</b> Client-first approach</div></div>
+        <a class="btn" href="#contact">Know more about us ↗</a>
+      </div>
+    </div></section>
+
+    <section class="dark" id="services"><div class="wrap">
+      <div class="section-head"><div class="kicker">What we do</div><h2>Construction solutions,<br>thought through.</h2><p>Flexible support for residential, commercial and civil construction requirements. Scope and delivery are aligned to each project's needs.</p></div>
+      <div class="services">
+        <article class="service"><div class="num">01 / BUILD</div><h3>Building Construction</h3><p>Planned construction for residential and commercial spaces, with attention to structure, finish and site coordination.</p><span class="arrow">↗</span></article>
+        <article class="service"><div class="num">02 / RENOVATE</div><h3>Renovation & Remodeling</h3><p>Thoughtful upgrades, repairs and space transformations designed around function, durability and finish.</p><span class="arrow">↗</span></article>
+        <article class="service"><div class="num">03 / CIVIL</div><h3>Civil & Infrastructure</h3><p>Execution support for civil works, site development and associated infrastructure requirements.</p><span class="arrow">↗</span></article>
+        <article class="service"><div class="num">04 / PLAN</div><h3>Project Planning</h3><p>Practical project coordination, scope discussions, scheduling and resource planning before work begins.</p><span class="arrow">↗</span></article>
+        <article class="service"><div class="num">05 / FINISH</div><h3>Finishing Works</h3><p>Interior and exterior finishing coordination with a focus on clean detailing and consistent workmanship.</p><span class="arrow">↗</span></article>
+        <article class="service"><div class="num">06 / PARTNER</div><h3>Contracting & Execution</h3><p>Reliable execution partnerships for defined construction scopes, subject to project requirements and assessment.</p><span class="arrow">↗</span></article>
+      </div>
+    </div></section>
+
+    <section class="projects" id="projects"><div class="wrap">
+      <div class="section-head"><div class="kicker">Selected work</div><h2>Spaces shaped with purpose.</h2><p>A look at the types of projects and environments we aim to deliver. Replace these sample visuals with your actual completed work before publishing.</p></div>
+      <div class="project-grid">
+        <article class="project"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" alt="Modern residential building"><div class="project-info"><span>Residential</span><h3>Modern Living Spaces</h3></div></article>
+        <div class="project-stack">
+          <article class="project"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Commercial building"><div class="project-info"><span>Commercial</span><h3>Workspaces & Buildings</h3></div></article>
+          <article class="project"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85" alt="Construction site"><div class="project-info"><span>Civil works</span><h3>On-site Execution</h3></div></article>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="process"><div class="wrap">
+      <div class="section-head"><div class="kicker">How we work</div><h2>A clear process.<br>A better build.</h2><p>Good construction is not just about the final result. It is about making every step clear and accountable.</p></div>
+      <div class="process-grid">
+        <div class="step"><div class="n">01</div><h3>Understand</h3><p>We discuss your goals, site conditions, requirements and expectations.</p></div>
+        <div class="step"><div class="n">02</div><h3>Plan</h3><p>We define the scope, approach, estimated schedule and key project details.</p></div>
+        <div class="step"><div class="n">03</div><h3>Execute</h3><p>Work is coordinated with attention to quality, safety and communication.</p></div>
+        <div class="step"><div class="n">04</div><h3>Deliver</h3><p>We review the agreed scope and work toward a considered handover.</p></div>
+      </div>
+    </div></section>
+
+    <div class="cta-band"><div class="wrap cta-inner"><h2>Have a site, a plan or an idea?<br>Let's build something that lasts.</h2><a class="btn btn-dark" href="#contact">Talk to our team&nbsp; ↗</a></div></div>
+
+    <section id="contact"><div class="wrap contact-grid">
+      <div class="contact-copy"><div class="kicker">Let's talk</div><h2>Tell us what<br>you're building.</h2><p>Share a few details about your project. We'll use them to understand your requirement and get the conversation started.</p>
+        <div class="contact-line"><small>Location</small>Lucknow, Uttar Pradesh, India</div>
+        <div class="contact-line"><small>Phone / WhatsApp</small><a href="tel:+910000000000">+91 XXXXX XXXXX — update this number</a></div>
+        <div class="contact-line"><small>Email</small><a href="mailto:yourmail@example.com">yourmail@example.com — update this email</a></div>
+      </div>
+      <form class="form" id="projectForm"><h3>Project enquiry</h3>
+        <div class="fields">
+          <div class="field"><label for="name">YOUR NAME</label><input id="name" name="name" placeholder="Full name" required></div>
+          <div class="field"><label for="phone">PHONE NUMBER</label><input id="phone" name="phone" type="tel" placeholder="+91" required></div>
+          <div class="field"><label for="type">PROJECT TYPE</label><select id="type" name="type"><option>Residential construction</option><option>Commercial construction</option><option>Renovation</option><option>Civil / infrastructure</option><option>Contracting work</option><option>Other</option></select></div>
+          <div class="field"><label for="budget">ESTIMATED BUDGET</label><select id="budget" name="budget"><option>Not decided yet</option><option>Below ₹10 lakh</option><option>₹10–25 lakh</option><option>₹25–50 lakh</option><option>₹50 lakh–1 crore</option><option>Above ₹1 crore</option></select></div>
+          <div class="field full"><label for="message">TELL US ABOUT YOUR PROJECT</label><textarea id="message" name="message" placeholder="Location, plot size, scope, timeline or anything else..."></textarea></div>
+        </div>
+        <button class="btn" type="submit">Send enquiry ↗</button>
+        <p class="form-note">This opens your email app with the enquiry details. Add your real business email in the code before publishing.</p>
+      </form>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">
+    <div class="footgrid">
+      <div><a class="brand" href="#home"><span class="brandmark"><span>SB</span></span><span>SHARADHA BASHU<small>CONSTRUCTION & INFRASTRUCTURE</small></span></a><p>Building with integrity, delivering with precision. Construction and project execution support in Lucknow and surrounding areas.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="#about">About us</a></li><li><a href="#services">Our services</a></li><li><a href="#projects">Project gallery</a></li><li><a href="#process">Our process</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li>Lucknow, Uttar Pradesh</li><li><a href="#contact">Request a consultation</a></li><li><a href="mailto:yourmail@example.com">Email us</a></li></ul></div>
+    </div>
+    <div class="copyright"><span>© <span id="year"></span> SHARADHA BASHU. All rights reserved.</span><span>Built for lasting value.</span></div>
+  </div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+    document.getElementById('projectForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const d=new FormData(this);
+      const subject=encodeURIComponent('New construction project enquiry — '+d.get('name'));
+      const body=encodeURIComponent(
+        'Name: '+d.get('name')+'\nPhone: '+d.get('phone')+'\nProject type: '+d.get('type')+
+        '\nEstimated budget: '+d.get('budget')+'\n\nProject details:\n'+d.get('message')
+      );
+      window.location.href='mailto:yourmail@example.com?subject='+subject+'&body='+body;
+    });
+  </script>
+</body>
+</html>
