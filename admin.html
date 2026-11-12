@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | MAHAVEER Estates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1420;--side:#08101a;--card:#122033;--gold:#d4a84b;--gold2:#f3d38a;--text:#e9edf2;--muted:#8d9bab;--line:rgba(255,255,255,.08);--red:#e5484d;--ok:#3fb980}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.5}
+button,input,select,textarea{font:inherit}
+.hidden{display:none!important}
+
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px;position:relative;overflow:hidden}
+#login::before,#login::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(100px);opacity:.35;animation:fl 12s ease-in-out infinite}
+#login::before{background:#c4882a;top:-120px;right:-100px}
+#login::after{background:#2a5d8f;bottom:-140px;left:-120px;animation-delay:-5s}
+@keyframes fl{50%{transform:translate(30px,-25px)}}
+.lcard{width:min(400px,100%);background:rgba(18,32,51,.85);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:24px;padding:40px 34px;box-shadow:0 40px 80px rgba(0,0,0,.5);position:relative;z-index:1;animation:pop .7s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.lcard .mark{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--gold),#8a6a22);display:grid;place-items:center;font-weight:800;color:#0b1420;margin:0 auto 18px;font-size:1.1rem}
+.lcard h1{text-align:center;font-size:1.4rem}
+.lcard p{text-align:center;color:var(--muted);font-size:.9rem;margin:6px 0 26px}
+.shake{animation:shake .5s}
+@keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.err{color:var(--red);font-size:.85rem;text-align:center;min-height:20px;margin-top:12px}
+
+.inp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--text);outline:none;transition:border-color .25s,box-shadow .25s}
+.inp:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,168,75,.12)}
+textarea.inp{min-height:90px;resize:vertical}
+select.inp option{background:var(--card)}
+label.lb{display:block;font-size:.78rem;color:var(--muted);margin:0 0 6px;letter-spacing:.04em}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;border:0;cursor:pointer;font-weight:700;font-size:.92rem;transition:transform .25s,box-shadow .25s,background .25s;color:inherit;background:rgba(255,255,255,.06)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0b1420;box-shadow:0 10px 24px rgba(212,168,75,.25)}
+.btn-gold:hover{box-shadow:0 14px 30px rgba(212,168,75,.4)}
+.btn-danger{background:rgba(229,72,77,.12);color:#ff8a8d}
+.btn-sm{padding:8px 12px;font-size:.8rem;border-radius:9px}
+.btn-block{width:100%}
+
+/* layout */
+#app{display:grid;grid-template-columns:250px 1fr;min-height:100vh;animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0}}
+aside{background:var(--side);border-right:1px solid var(--line);padding:26px 18px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:12px;padding:6px 10px 24px}
+.brand .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#8a6a22);display:grid;place-items:center;font-weight:800;color:#0b1420}
+.brand b{display:block;font-size:.95rem}
+.brand small{color:var(--gold);font-size:.65rem;letter-spacing:.16em}
+.nav-btn{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:none;border:0;color:var(--muted);cursor:pointer;text-align:left;font-weight:600;transition:all .25s;position:relative}
+.nav-btn:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.nav-btn.active{color:var(--gold2);background:rgba(212,168,75,.1)}
+.nav-btn.active::before{content:"";position:absolute;left:-18px;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--gold)}
+.badge{margin-left:auto;background:var(--red);color:#fff;font-size:.7rem;padding:2px 8px;border-radius:999px}
+.side-foot{margin-top:auto}
+main{padding:34px 40px;overflow-x:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:14px}
+.top h2{font-size:1.7rem}
+.top p{color:var(--muted);font-size:.9rem}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .3s,border-color .3s;animation:up .6s cubic-bezier(.2,.7,.2,1) both}
+.kpi:hover{transform:translateY(-4px);border-color:rgba(212,168,75,.4)}
+.kpi:nth-child(2){animation-delay:.08s}.kpi:nth-child(3){animation-delay:.16s}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+.kpi span{color:var(--muted);font-size:.85rem}
+.kpi b{display:block;font-size:2.2rem;color:var(--gold2);margin-top:6px}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:22px;animation:up .5s ease both}
+.panel h3{font-size:1.05rem;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.grid2 .full{grid-column:1/-1}
+.form-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;color:var(--muted);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+.thumb{width:54px;height:40px;border-radius:8px;background:linear-gradient(135deg,#2a4a6e,#0e1a2b);object-fit:cover}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.74rem;background:rgba(212,168,75,.12);color:var(--gold2)}
+.pill.new{background:rgba(229,72,77,.15);color:#ff8a8d}
+.pill.read{background:rgba(63,185,128,.15);color:#7ee2b1}
+.row-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.empty{text-align:center;color:var(--muted);padding:40px}
+.tablewrap{overflow-x:auto}
+.msg{color:var(--muted);font-size:.85rem;max-width:340px}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ok);color:#06180f;padding:14px 20px;border-radius:12px;font-weight:700;transform:translateY(140%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:50;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.toast.show{transform:none}
+.toast.bad{background:var(--red);color:#fff}
+
+@media (max-width:860px){
+  #app{grid-template-columns:1fr}
+  aside{position:relative;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:14px}
+  .brand{padding:0 6px 0 0}
+  .nav-btn.active::before{display:none}
+  .side-foot{margin:0 0 0 auto}
+  main{padding:22px 16px}
+  .kpis{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="lcard" id="lcard">
+    <div class="mark">ME</div>
+    <h1>Admin Panel</h1>
+    <p>MAHAVEER Estates · Restricted access</p>
+    <form id="loginForm" autocomplete="off">
+      <label class="lb" for="pw">Password</label>
+      <input class="inp" id="pw" type="password" placeholder="Enter admin password" required>
+      <div style="height:18px"></div>
+      <button class="btn btn-gold btn-block" type="submit">Sign in</button>
+      <div class="err" id="err"></div>
+    </form>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <aside>
+    <div class="brand"><div class="mark">ME</div><div><b>MAHAVEER Admin</b><small>CONTROL PANEL</small></div></div>
+    <button class="nav-btn active" data-tab="dash">📊 Dashboard</button>
+    <button class="nav-btn" data-tab="projects">🏗️ Projects</button>
+    <button class="nav-btn" data-tab="enq">✉️ Enquiries <span class="badge hidden" id="unread">0</span></button>
+    <div class="side-foot"><button class="btn btn-danger btn-block" id="logout">Sign out</button></div>
+  </aside>
+
+  <main>
+    <!-- Dashboard -->
+    <section data-view="dash">
+      <div class="top"><div><h2>Dashboard</h2><p>Overview of projects and enquiries</p></div></div>
+      <div class="kpis">
+        <div class="kpi"><span>Published projects</span><b id="kProj">0</b></div>
+        <div class="kpi"><span>Total enquiries</span><b id="kEnq">0</b></div>
+        <div class="kpi"><span>Unread enquiries</span><b id="kUnread">0</b></div>
+      </div>
+      <div class="panel"><h3>Latest enquiries</h3><div class="tablewrap" id="latest"></div></div>
+    </section>
+
+    <!-- Projects -->
+    <section data-view="projects" class="hidden">
+      <div class="top"><div><h2>Projects</h2><p>Add, edit or remove portfolio projects shown on the website</p></div></div>
+      <div class="panel" id="formPanel">
+        <h3 id="formTitle">Add new project</h3>
+        <form id="pForm">
+          <input type="hidden" id="pId">
+          <div class="grid2">
+            <div><label class="lb">Project title</label><input class="inp" id="pTitle" required></div>
+            <div><label class="lb">Category</label>
+              <select class="inp" id="pCat"><option>General Construction</option><option>Renovation</option><option>Infrastructure</option><option>Interior Works</option><option>Project Management</option></select></div>
+            <div><label class="lb">Location</label><input class="inp" id="pLoc" placeholder="e.g. Lucknow" required></div>
+            <div><label class="lb">Year</label><input class="inp" id="pYear" placeholder="e.g. 2026" required></div>
+            <div class="full"><label class="lb">Image URL (optional)</label><input class="inp" id="pImg" type="url" placeholder="https://..."></div>
+            <div class="full"><label class="lb">Description</label><textarea class="inp" id="pDesc" required></textarea></div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-gold" type="submit" id="saveBtn">Publish project</button>
+            <button class="btn" type="button" id="cancelEdit">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="panel"><h3>All projects</h3><div class="tablewrap" id="pTable"></div></div>
+    </section>
+
+    <!-- Enquiries -->
+    <section data-view="enq" class="hidden">
+      <div class="top"><div><h2>Enquiries</h2><p>Consultation requests from the website</p></div><button class="btn btn-sm" id="markAll">Mark all as read</button></div>
+      <div class="panel"><div class="tablewrap" id="eTable"></div></div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Change this before deploying. This is a front-end gate only.
+const ADMIN_PASSWORD = 'mahaveer@2026';
+const SESSION_KEY = 'mahaveer_admin_session';
+const PK = 'mahaveer_projects', EK = 'mahaveer_enquiries';
+
+const DEFAULTS = [
+  {id:'p1',title:'Residential Tower',category:'General Construction',location:'Lucknow',year:'2025',image:'',desc:'A multi-storey residential complex delivered with modern finishing and strict quality control.'},
+  {id:'p2',title:'Heritage Renovation',category:'Renovation',location:'Lucknow',year:'2024',image:'',desc:'Careful restoration that preserves character while upgrading structure and services.'},
+  {id:'p3',title:'Road & Drainage Works',category:'Infrastructure',location:'Uttar Pradesh',year:'2024',image:'',desc:'Civil infrastructure built for durability, with proper drainage and long service life.'}
+];
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch(e) { return d; } };
+const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) { toast('Storage unavailable', true); } };
+let projects = load(PK, null) || DEFAULTS; if (!load(PK, null)) save(PK, projects);
+let enquiries = load(EK, []);
+const fmtDate = d => d ? new Date(d).toLocaleString('en-IN', {dateStyle:'medium', timeStyle:'short'}) : '';
+
+function toast(msg, bad){
+  const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (bad ? ' bad' : '');
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ---------- Auth ----------
+function showApp(){ $('#login').classList.add('hidden'); $('#app').classList.remove('hidden'); renderAll(); }
+function showLogin(){ $('#app').classList.add('hidden'); $('#login').classList.remove('hidden'); $('#pw').value=''; }
+$('#loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if ($('#pw').value === ADMIN_PASSWORD) {
+    sessionStorage.setItem(SESSION_KEY, '1'); $('#err').textContent = ''; showApp();
+  } else {
+    $('#err').textContent = 'Incorrect password. Please try again.';
+    const c = $('#lcard'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake');
+  }
+});
+$('#logout').addEventListener('click', () => { sessionStorage.removeItem(SESSION_KEY); showLogin(); });
+
+// ---------- Tabs ----------
+$$('.nav-btn').forEach(b => b.addEventListener('click', () => {
+  $$('.nav-btn').forEach(x => x.classList.toggle('active', x === b));
+  $$('[data-view]').forEach(v => { if (v.dataset.view === b.dataset.tab) { v.classList.remove('hidden'); v.style.animation = 'none'; void v.offsetWidth; v.style.animation = ''; } else v.classList.add('hidden'); });
+}));
+
+// ---------- Dashboard ----------
+function renderDash(){
+  $('#kProj').textContent = projects.length;
+  $('#kEnq').textContent = enquiries.length;
+  const unread = enquiries.filter(x => !x.read).length;
+  $('#kUnread').textContent = unread;
+  const b = $('#unread'); b.textContent = unread; b.classList.toggle('hidden', !unread);
+  const latest = enquiries.slice(0, 5);
+  $('#latest').innerHTML = latest.length ? `<table><thead><tr><th>Name</th><th>Service</th><th>Received</th></tr></thead><tbody>${latest.map(e => `<tr><td>${esc(e.name)}</td><td>${esc(e.service)}</td><td class="msg">${fmtDate(e.date)}</td></tr>`).join('')}</tbody></table>` : '<div class="empty">No enquiries yet.</div>';
+}
+
+// ---------- Projects ----------
+function renderProjects(){
+  $('#pTable').innerHTML = projects.length ? `<table><thead><tr><th>Project</th><th>Category</th><th>Location</th><th>Year</th><th></th></tr></thead><tbody>${projects.map(p => `
+    <tr>
+      <td><div style="display:flex;gap:12px;align-items:center">${p.image ? `<img class="thumb" src="${esc(p.image)}" alt="">` : '<div class="thumb"></div>'}<b>${esc(p.title)}</b></div></td>
+      <td><span class="pill">${esc(p.category)}</span></td>
+      <td>${esc(p.location)}</td><td>${esc(p.year)}</td>
+      <td><div class="row-actions"><button class="btn btn-sm" data-edit="${p.id}">Edit</button><button class="btn btn-sm btn-danger" data-del="${p.id}">Delete</button></div></td>
+    </tr>`).join('')}</tbody></table>` : '<div class="empty">No projects. Add your first project above.</div>';
+}
+function resetForm(){
+  $('#pForm').reset(); $('#pId').value = ''; $('#formTitle').textContent = 'Add new project'; $('#saveBtn').textContent = 'Publish project';
+}
+$('#pForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const data = {title:$('#pTitle').value.trim(), category:$('#pCat').value, location:$('#pLoc').value.trim(), year:$('#pYear').value.trim(), image:$('#pImg').value.trim(), desc:$('#pDesc').value.trim()};
+  const id = $('#pId').value;
+  if (id) { projects = projects.map(p => p.id === id ? {...p, ...data} : p); toast('Project updated'); }
+  else { projects.unshift({id:'p' + Date.now(), ...data}); toast('Project published'); }
+  save(PK, projects); resetForm(); renderAll();
+});
+$('#cancelEdit').addEventListener('click', resetForm);
+$('#pTable').addEventListener('click', e => {
+  const ed = e.target.dataset.edit, del = e.target.dataset.del;
+  if (ed) {
+    const p = projects.find(x => x.id === ed); if (!p) return;
+    $('#pId').value = p.id; $('#pTitle').value = p.title; $('#pCat').value = p.category; $('#pLoc').value = p.location;
+    $('#pYear').value = p.year; $('#pImg').value = p.image || ''; $('#pDesc').value = p.desc;
+    $('#formTitle').textContent = 'Edit project'; $('#saveBtn').textContent = 'Save changes';
+    $('#formPanel').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  if (del && confirm('Delete this project from the website?')) {
+    projects = projects.filter(p => p.id !== del); save(PK, projects); renderAll(); toast('Project deleted');
+  }
+});
+
+// ---------- Enquiries ----------
+function renderEnq(){
+  $('#eTable').innerHTML = enquiries.length ? `<table><thead><tr><th>Status</th><th>Name</th><th>Contact</th><th>Service</th><th>Message</th><th>Received</th><th></th></tr></thead><tbody>${enquiries.map((e, i) => `
+    <tr style="${e.read ? '' : 'font-weight:600'}">
+      <td><span class="pill ${e.read ? 'read' : 'new'}">${e.read ? 'Read' : 'New'}</span></td>
+      <td>${esc(e.name)}</td>
+      <td><div>${esc(e.phone)}</div><div class="msg"><a href="mailto:${esc(e.email)}" style="color:var(--gold2)">${esc(e.email)}</a></div></td>
+      <td>${esc(e.service)}</td>
+      <td class="msg">${esc(e.message) || '—'}</td>
+      <td class="msg">${fmtDate(e.date)}</td>
+      <td><div class="row-actions"><button class="btn btn-sm" data-read="${i}">${e.read ? 'Unread' : 'Mark read'}</button><button class="btn btn-sm btn-danger" data-rm="${i}">Delete</button></div></td>
+    </tr>`).join('')}</tbody></table>` : '<div class="empty">No enquiries yet. They appear here when visitors submit the website form.</div>';
+}
+$('#eTable').addEventListener('click', e => {
+  const r = e.target.dataset.read, rm = e.target.dataset.rm;
+  if (r !== undefined) { enquiries[r].read = !enquiries[r].read; save(EK, enquiries); renderAll(); }
+  if (rm !== undefined && confirm('Delete this enquiry?')) { enquiries.splice(rm, 1); save(EK, enquiries); renderAll(); toast('Enquiry deleted'); }
+});
+$('#markAll').addEventListener('click', () => { enquiries.forEach(x => x.read = true); save(EK, enquiries); renderAll(); toast('All marked as read'); });
+
+function renderAll(){ enquiries = load(EK, []); renderDash(); renderProjects(); renderEnq(); }
+
+// Initial state
+if (sessionStorage.getItem(SESSION_KEY) === '1') showApp();
+</script>
+</body>
+</html>
